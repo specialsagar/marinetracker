@@ -1,35 +1,55 @@
 <div class="row">
-  <div class="col-xs-12 table-responsive" style="max-height: 75vh" ng-show="showing == 'table' || showing == 'all'" ng-class="{'col-md-6': (showing == 'all')}">
-    <table class="table table-striped table-hover">
+  <div class="col-xs-12 table-responsive" style="max-height: 70vh" ng-show="showing == 'table' || showing == 'all'" ng-class="{'col-md-6': (showing == 'all')}">
+    <table class="table table-striped table-hover table-fixed">
       <thead>
         <tr>
           <th ng-click="sort('imo_number')">
             IMO Number
-            <i class="fa" ng-show="sortBy=='imo_number'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+            <i class="fa" ng-show="sortBy=='imo_number'" ng-class="{'fa-caret-up':reverse,'fa-caret-down':!reverse}"></i>
+            <span class="fa fa-stack" ng-show="sortBy!='imo_number'">
+              <i class="fa fa-caret-up"></i>
+              <i class="fa fa-caret-down"></i>
+            </span>
           </th>
           <th ng-click="sort('name')">
             Name
-            <i class="fa" ng-show="sortBy=='name'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+            <i class="fa" ng-show="sortBy=='name'" ng-class="{'fa-caret-up':reverse,'fa-caret-down':!reverse}"></i>
+            <span class="fa fa-stack" ng-show="sortBy!='name'">
+              <i class="fa fa-caret-up"></i>
+              <i class="fa fa-caret-down"></i>
+            </span>
           </th>
           <th ng-click="sort('country')">
             Country
-            <i class="fa" ng-show="sortBy=='country'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+            <i class="fa" ng-show="sortBy=='country'" ng-class="{'fa-caret-up':reverse,'fa-caret-down':!reverse}"></i>
+            <span class="fa fa-stack" ng-show="sortBy!='country'">
+              <i class="fa fa-caret-up"></i>
+              <i class="fa fa-caret-down"></i>
+            </span>
           </th>
           <th ng-click="sort('origin')">
             Origin
-            <i class="fa" ng-show="sortBy=='origin'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+            <i class="fa" ng-show="sortBy=='origin'" ng-class="{'fa-caret-up':reverse,'fa-caret-down':!reverse}"></i>
+            <span class="fa fa-stack" ng-show="sortBy!='origin'">
+              <i class="fa fa-caret-up"></i>
+              <i class="fa fa-caret-down"></i>
+            </span>
           </th>
           <th ng-click="sort('destination')">
             Destination
-            <i class="fa" ng-show="sortBy=='destination'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+            <i class="fa" ng-show="sortBy=='destination'" ng-class="{'fa-caret-up':reverse,'fa-caret-down':!reverse}"></i>
+            <span class="fa fa-stack" ng-show="sortBy!='destination'">
+              <i class="fa fa-caret-up"></i>
+              <i class="fa fa-caret-down"></i>
+            </span>
           </th>
           <th ng-click="sort('category')">
             Category
-            <i class="fa" ng-show="sortBy=='category'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
-          </th>
-          <th ng-click="sort('date')">
-            Date
-            <i class="fa" ng-show="sortBy=='category'" ng-class="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+            <i class="fa" ng-show="sortBy=='category'" ng-class="{'fa-caret-up':reverse,'fa-caret-down':!reverse}"></i>
+            <span class="fa fa-stack" ng-show="sortBy!='category'">
+              <i class="fa fa-caret-up"></i>
+              <i class="fa fa-caret-down"></i>
+            </span>
           </th>
           <th>
             View Details
@@ -67,9 +87,7 @@
               <option ng-repeat="opt in ['Crude Oil', 'Chemicals', 'Consumer Goods', 'Food Products', 'Metals', 'Minerals']" value="{{opt}}">{{opt}}</option>
             </select>
           </td>
-          <td>
-            <input type="date" name="" class="form-control" ng-model="search_date" ng-change="filterDate()">
-          </td>
+          <td></td>
 
         </tr>
         <tr dir-paginate="ship in ships | itemsPerPage: itemsPerPage | filter: search | orderBy:sortBy:reverse" total-items="data.total_count">
@@ -79,24 +97,25 @@
           <td>{{ship.origin}}</td>
           <td>{{ship.destination}}</td>
           <td>{{ship.category}}</td>
-          <td>{{ship.date | date:'dd MMM'}}</td>
-          <td ng-click="view_details(ship)" class="text-info pointer">View Details</td>
+          <td ng-click="view_details(ship)"><span class="text-info pointer">View Details</span></td>
         </tr>
       </tbody>
     </table> 
   </div>
   <div class="col-xs-12" ng-show="showing == 'map' || showing == 'all'" ng-class="{'col-md-6': (showing == 'all')}">
-    <ng-map id="map" zoom="1" style="height: 75vh;">
+    <!-- need to remove hardcoded values for center -->
+    <ng-map id="map" zoom="4" center="[17, 67]" style="height: 70vh;">
       <marker ng-repeat="ship in ships | filter: search"
         position="[{{ship.latitude}}, {{ship.longitude}}]"
         data="{{ship.name}}"
         on-click="showData()"></marker>
     </ng-map>
   </div>
-  <div class="col-xs-12">
-    <button class="btn btn-primary" ng-click="showing='table'">Show Only Table</button>
+  <div class="col-xs-12 text-center">
+    <br>
+    <button class="btn btn-primary" ng-click="showing='table'">Show Table</button>
     <button class="btn btn-primary" ng-click="showing='all'">Show both</button>
-    <button class="btn btn-primary" ng-click="showing='map'">Show Only Map</button>
+    <button class="btn btn-primary" ng-click="showing='map'">Show Map</button>
   </div>
   <div class="col-xs-12 text-center">
     <dir-pagination-controls
@@ -118,60 +137,64 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <img class="col-xs-12" ng-src="{{selected_ship.picture}}"/>
-          <div class="col-xs-12 form-group">
+          <img class="col-xs-12 photo-margin" ng-src="{{selected_ship.picture}}"/>
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">IMO Number</label>
+              <label class="col-xs-6 text-right">IMO Number</label>
               <div class="col-xs-6">{{selected_ship.imo_number}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">Latitude </label>
+              <label class="col-xs-6 text-right">Latitude </label>
               <div class="col-xs-6">{{selected_ship.latitude}}</div>
-              <label class="col-xs-6 font-weight-bold">Longitude </label>
+            </div>
+          </div>
+          <div class="col-xs-12 info-margin">
+            <div class="row">
+              <label class="col-xs-6 text-right">Longitude </label>
               <div class="col-xs-6">{{selected_ship.longitude}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">Category</label>
+              <label class="col-xs-6 text-right">Category</label>
               <div class="col-xs-6">{{selected_ship.category}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">Speed</label>
+              <label class="col-xs-6 text-right">Speed</label>
               <div class="col-xs-6">{{selected_ship.speed}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin" ng-if="selected_ship.teu">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">TEU</label>
+              <label class="col-xs-6 text-right">TEU</label>
               <div class="col-xs-6">{{selected_ship.teu}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin" ng-if="selected_ship.dwt">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">DWT</label>
+              <label class="col-xs-6 text-right">DWT</label>
               <div class="col-xs-6">{{selected_ship.dwt}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">Port of origin</label>
+              <label class="col-xs-6 text-right">Port of origin</label>
               <div class="col-xs-6">{{selected_ship.origin}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">Port of destination</label>
+              <label class="col-xs-6 text-right">Port of destination</label>
               <div class="col-xs-6">{{selected_ship.destination}}</div>
             </div>
           </div>
-          <div class="col-xs-12 form-group">
+          <div class="col-xs-12 info-margin">
             <div class="row">
-              <label class="col-xs-6 font-weight-bold">Port of origin</label>
+              <label class="col-xs-6 text-right">Port of origin</label>
               <div class="col-xs-6">{{selected_ship.origin}}</div>
             </div>
           </div>

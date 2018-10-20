@@ -1,3 +1,49 @@
+body {
+  background-color: rgba(207, 193, 232, 0.15);
+}
 .pointer {
   cursor: pointer;
+}
+
+.fa-stack {
+  .fa-caret-down {
+    position: absolute;
+    bottom: 4px;
+  }
+
+  .fa-caret-up {
+    position: absolute;
+    top: 4px;
+  }
+
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+.photo-margin {
+  margin-bottom: 10px;
+}
+.info-margin {
+    margin-bottom: 5px;
+}
+
+// override bootstrap class
+th {
+  height: 50px;
+  width: 140px;
+  vertical-align: middle !important;
+}
+.navbar>.container-fluid .navbar-brand {
+  padding: 0;
+  img {
+    height: 90%;
+  }
+}
+
+.table-striped>tbody>tr:nth-of-type(odd),.modal-body,.modal-footer {
+  background-color: #edf3f9;
+}
+.table-striped>thead>tr, .modal-header {
+  background-color: #c6e2ff;
 }
