@@ -8,7 +8,7 @@
     "longitude": "61.3459",
     "destination": "Karachi",
     "origin": "Chennai",
-    "country": "Karachi",
+    "country": "Pakistan",
     "category": "Minerals",
     "picture": "http://maritime-connector.com/images/vlocbergenord-16-wiki-19052.jpg",
     "speed": "28 Knots"
@@ -120,7 +120,7 @@
     "longitude": "61.646",
     "destination": "Kochi",
     "origin": "Mombassa",
-    "country": "Africa",
+    "country": "Australia",
     "category": "Minerals",
     "picture": "http://maritime-connector.com/ships_uploads/seaboard_pride-9178111-container_ship-8-163750.jpg",
     "speed": "27 Knots"
@@ -176,7 +176,7 @@
     "longitude": "62.4702",
     "destination": "Dubai",
     "origin": "Kochi",
-    "country": "Africa",
+    "country": "Australia",
     "category": "Chemicals",
     "picture": "http://maritime-connector.com/images/vlocbergenord-16-wiki-19052.jpg",
     "speed": "19 Knots"
