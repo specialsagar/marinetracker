@@ -11,6 +11,7 @@ angular.module('mainapp', ['ngRoute','angularUtils.directives.dirPagination', 'n
 
 .controller('mainCtrl',function($http, $scope, NgMap, $filter) {
   $scope.search = {};
+  $scope.showing = 'table';
   $scope.ships = []; //declare an empty array
   $scope.data = {};
   $scope.itemsPerPage = 15; // can be dynamic wrt server
