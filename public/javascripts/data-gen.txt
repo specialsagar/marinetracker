@@ -1,0 +1,40 @@
+[
+  {
+    'repeat(7)': {
+      imo_number: '{{integer(20000, 30000)}}',
+      name: '{{firstName()}}',
+      date: '{{date(new Date(2018, 9, 26), new Date(2018, 9, 27)).getTime()}}',
+      teu: '{{integer(2, 30) * 1000}}',
+      dwt: '{{integer(2, 30) * 1000}}',
+      latitude: '{{floating(0, 15)}}',
+      longitude: '{{floating(60, 65)}}',
+      destination(tags) {
+        let fruits = ['Dubai', 'Mumbai', 'Kochi', 'Chennai', 'Karachi'];
+        return fruits[tags.integer(0, fruits.length - 1)];
+      },
+      origin(tags) {
+        let fruits = ['Dubai', 'Mumbai', 'Kochi', 'Chennai', 'Karachi'];
+        return fruits[tags.integer(0, fruits.length - 1)];
+      },
+      country(tags) {
+        let fruits = ['China', 'India', 'Singapore', 'UAE'];
+        return fruits[tags.integer(0, fruits.length - 1)];
+      },
+      content: [{
+        'repeat(3,5)': {
+        container_id: '{{integer(10000, 100000, 000000)}}',
+        commodity: '',
+        category(tags) {
+          let fruits = ['Chemicals', 'Consumer Goods', 'Food Products', 'Metals'];
+          return fruits[tags.integer(0, fruits.length - 1)];
+        },
+        }
+      }],
+      picture(tags) {
+        let fruits = ['http://maritime-connector.com/ships_uploads/wana_bhum-9308663-container_ship-8-140842.jpg', 'http://maritime-connector.com/ships_uploads/seaboard_pride-9178111-container_ship-8-163750.jpg', 'https://en.wikipedia.org/wiki/File:AMAnderson.jpg', 'http://maritime-connector.com/images/vlocbergenord-16-wiki-19052.jpg'];
+        return fruits[tags.integer(0, fruits.length - 1)];
+      },
+      speed: '{{integer(0, 30)}} Knots',
+    }
+  }
+]

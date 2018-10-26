@@ -1,6 +1,3 @@
-body {
-  background-color: rgba(207, 193, 232, 0.15); }
-
 .pointer {
   cursor: pointer; }
 
@@ -15,25 +12,10 @@ body {
 .table-fixed {
   table-layout: fixed; }
 
-.photo-margin {
-  margin-bottom: 10px; }
-
-.info-margin {
-  margin-bottom: 5px; }
-
 th {
   height: 50px;
   width: 140px;
   vertical-align: middle !important; }
-
-.navbar > .container-fluid .navbar-brand {
-  padding: 0; }
-  .navbar > .container-fluid .navbar-brand img {
-    height: 90%; }
-
-.navbar-selekt {
-  background-color: #5a6773;
-  border-radius: 0; }
 
 .table-striped > tbody > tr:nth-of-type(odd), .modal-body, .modal-footer {
   background-color: #edf3f9; }
