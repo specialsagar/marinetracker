@@ -21,6 +21,7 @@ th {
   background-color: #edf3f9; }
 
 .table-striped > thead > tr, .modal-header {
-  background-color: #c6e2ff; }
+  background-color: #7a76bc;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
