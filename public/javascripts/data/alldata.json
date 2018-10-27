@@ -423,7 +423,7 @@
     "dwt": 2000,
     "latitude": "13.8274",
     "longitude": "63.5911",
-    "destination": "Mumbai",
+    "destination": "Karachi",
     "origin": "Mumbai",
     "country": "China",
     "content": [
@@ -459,7 +459,7 @@
     "dwt": 4000,
     "latitude": "4.9663",
     "longitude": "64.3131",
-    "destination": "Chennai",
+    "destination": "Dubai",
     "origin": "Chennai",
     "country": "UAE",
     "content": [
@@ -711,7 +711,7 @@
     "latitude": "7.6028",
     "longitude": "64.4471",
     "destination": "Dubai",
-    "origin": "Dubai",
+    "origin": "Mumbai",
     "country": "Singapore",
     "content": [
       {
