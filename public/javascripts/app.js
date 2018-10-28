@@ -127,7 +127,11 @@ angular.module('mainapp', ['ngRoute','angularUtils.directives.dirPagination', 'n
     }
   }
 
-  $scope.datasetOverride = [{ yAxisID: 'y-axis-1', steppedLine: true, borderColor: $scope.colors, backgroundColor: $scope.colors }];
+  $scope.pieDataSetOverride = [{
+          label: 'Dataset 1'
+        }];
+
+  $scope.datasetOverride = [{ yAxisID: 'y-axis-1', steppedLine: true, backgroundColor: '#3c8dbc'}];
   $scope.options = {
     scales: {
       responsive: true,

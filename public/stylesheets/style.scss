@@ -1,4 +1,4 @@
-.pointer {
+.pointer, a {
   cursor: pointer;
 }
 
@@ -26,10 +26,6 @@ th {
   vertical-align: middle !important;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd),.modal-body,.modal-footer {
-  background-color: #d9d7f6;
-}
-.table-striped>thead>tr, .modal-header {
-  background-color: #7a76bc;
-  color: white;
+.chart-options {
+  margin-bottom: 1em;
 }

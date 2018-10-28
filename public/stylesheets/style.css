@@ -1,4 +1,4 @@
-.pointer {
+.pointer, a {
   cursor: pointer; }
 
 .fa-stack .fa-caret-down {
@@ -17,11 +17,7 @@ th {
   width: 140px;
   vertical-align: middle !important; }
 
-.table-striped > tbody > tr:nth-of-type(odd), .modal-body, .modal-footer {
-  background-color: #edf3f9; }
-
-.table-striped > thead > tr, .modal-header {
-  background-color: #7a76bc;
-  color: white; }
+.chart-options {
+  margin-bottom: 1em; }
 
 /*# sourceMappingURL=style.css.map */
